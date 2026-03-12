@@ -125,6 +125,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
 }
+
+# Redirect here after login
+LOGIN_REDIRECT_URL = '/api/students/?format=api'
+
+# Optional: redirect after logout
+LOGOUT_REDIRECT_URL = '/api-auth/login/'

@@ -5,6 +5,7 @@ from .views import (
     StudentRetrieveUpdateDestroyView,
     CourseListCreateView,
     EnrollmentListCreateView,
+    EnrollmentCreateView,  # add it here
 )
 from rest_framework_simplejwt.views import TokenRefreshView
 
@@ -22,4 +23,5 @@ urlpatterns = [
 
     # Enrollment endpoints
     path('enrollments/', EnrollmentListCreateView.as_view(), name='enrollment_list_create'),
+    path('api/enrollments/', EnrollmentCreateView.as_view(), name='enroll-student'),  # new POST endpoint
 ]

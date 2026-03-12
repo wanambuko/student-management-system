@@ -27,3 +27,15 @@ class Enrollment(models.Model):
 
     def __str__(self):
         return f"{self.student.name} enrolled in {self.course.course_name}"
+
+# Enrollment model
+class Enrollment(models.Model):
+    student = models.ForeignKey('Student', on_delete=models.CASCADE)
+    course = models.ForeignKey('Course', on_delete=models.CASCADE)
+    enrolled_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('student', 'course')  # prevents duplicate enrollments
+
+    def __str__(self):
+        return f"{self.student} enrolled in {self.course}"

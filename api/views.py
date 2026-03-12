@@ -63,3 +63,13 @@ class EnrollmentListCreateView(generics.ListCreateAPIView):
 
         # If validation passes, proceed to create enrollment
         return super().create(request, *args, **kwargs)
+
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
+from .models import Enrollment
+from .serializers import EnrollmentSerializer
+
+class EnrollmentCreateView(generics.CreateAPIView):
+    queryset = Enrollment.objects.all()
+    serializer_class = EnrollmentSerializer
+    permission_classes = [IsAuthenticated]  # only logged-in users can enroll students
