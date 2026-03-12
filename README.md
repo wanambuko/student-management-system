@@ -28,6 +28,23 @@ Capstone Project – Student Management System built using Django REST Framework
 
 ## How to Run
 ```bash
+# 1. Clone the repository
+git clone <your-repo-link>
+
+# 2. Create virtual environment
+python -m venv venv
+
+# 3. Activate virtual environment
+# Windows
+venv\Scripts\activate
+# Linux / Mac
+source venv/bin/activate
+
+# 4. Install dependencies
 pip install -r requirements.txt
+
+# 5. Apply migrations
 python manage.py migrate
+
+# 6. Run server
 python manage.py runserver
